@@ -5,7 +5,7 @@ require 'includes/functions.php';
 $pageTitle = 'Your Cart';
 
 if (!isset($_SESSION['cart']) || !is_array($_SESSION['cart'])) {
-    $_SESSION['cart'] = []; // format: [product_id => quantity]
+    $_SESSION['cart'] = []; 
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -135,7 +135,6 @@ include 'includes/header.php';
                     </td>
                     <td>₱<?php echo number_format($item['price'], 2); ?></td>
                     <td>
-                        <!-- Each row is its own small form: update quantity for this one item -->
                         <form method="POST" action="cart.php" class="d-flex gap-1">
                             <input type="hidden" name="action" value="update">
                             <input type="number" name="quantities[<?php echo (int)$item['id']; ?>]" aria-label="Quantity for <?php echo e($item['name']); ?>"
@@ -146,7 +145,6 @@ include 'includes/header.php';
                     </td>
                     <td>₱<?php echo number_format($item['subtotal'], 2); ?></td>
                     <td>
-                        <!-- Separate small form just for removing this item -->
                         <form method="POST" action="cart.php">
                             <input type="hidden" name="action" value="remove">
                             <input type="hidden" name="product_id" value="<?php echo (int)$item['id']; ?>">
