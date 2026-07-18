@@ -1,8 +1,5 @@
 <?php
-// ============================================================
-// DATABASE CONNECTION
 // pls wag pakiealaman di naka save pass ko!!!!!!!!!!
-// ============================================================
 $host     = 'sql104.infinityfree.com';
 $dbname   = 'if0_42439251_myadmin_db';
 $dbuser   = 'if0_42439251';
